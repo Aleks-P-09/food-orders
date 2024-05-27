@@ -1,40 +1,31 @@
-package com.food.orders.entities;
+package com.food.orders.dto;
 
-import jakarta.persistence.*;
+
+
+import com.food.orders.entities.Cart;
+import com.food.orders.entities.OrderStatus;
 
 import java.util.List;
 
-@Entity
-@Table(name = "food_order")
-public class Order {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class OrderDto {
     private Integer id;
-    @Column(name = "first_name", nullable = false)
     private String firstName;
-    @Column(name = "last_name", nullable = false)
     private String lastName;
-    @Column(name = "phone", nullable = false)
     private String phone;
-    @Column(name = "address", nullable = false)
     private String address;
-    @OneToMany(mappedBy = "status", fetch = FetchType.LAZY)
-    private List<OrderStatus> orderStatuses;
+    private List<OrderStatusDto> orderStatuses;
+    private CartDto cart;
 
-    @OneToOne
-    @JoinColumn(name = "cart_id", nullable = false)
-    private Cart cart;
-
-    public Order() {
+    public OrderDto() {
     }
 
-    public Order(Integer id,
-                 String firstName,
-                 String lastName,
-                 String phone,
-                 String address,
-                 List<OrderStatus>  orderStatuses,
-                 Cart cart) {
+    public OrderDto(Integer id,
+                    String firstName,
+                    String lastName,
+                    String phone,
+                    String address,
+                    List<OrderStatusDto> orderStatuses,
+                    CartDto cart) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -84,25 +75,25 @@ public class Order {
         this.address = address;
     }
 
-    public List<OrderStatus> getOrderStatuses() {
+    public List<OrderStatusDto> getOrderStatuses() {
         return orderStatuses;
     }
 
-    public void setOrderStatuses(List<OrderStatus> orderStatuses) {
+    public void setOrderStatuses(List<OrderStatusDto> orderStatuses) {
         this.orderStatuses = orderStatuses;
     }
 
-    public Cart getCart() {
+    public CartDto getCart() {
         return cart;
     }
 
-    public void setCart(Cart cart) {
+    public void setCart(CartDto cart) {
         this.cart = cart;
     }
 
     @Override
     public String toString() {
-        return "Order{" +
+        return "OrderDto{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
