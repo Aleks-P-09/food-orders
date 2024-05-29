@@ -34,6 +34,7 @@ public class DtoUtil {
                 user.getCreatedOn(),
                 user.getCreatedBy(),
                 user.getFavorites().stream().map(favorites -> toFavoritesDto(favorites)).collect(Collectors.toList())
+//                user.getFavorites().stream().map(favorites -> toFavoritesDto(favorites)).toList()
         );
     }
 
