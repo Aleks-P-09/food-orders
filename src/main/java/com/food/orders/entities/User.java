@@ -4,6 +4,7 @@ import com.food.orders.entities.enums.UserRole;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -31,6 +32,7 @@ public class User {
     private List<Favorites> favorites;
 
     public User() {
+        this.favorites=new ArrayList<>();
     }
 
     public User(Integer id,

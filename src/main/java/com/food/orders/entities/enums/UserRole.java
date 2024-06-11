@@ -7,4 +7,6 @@ public enum UserRole {
     DELIVERY,
     WAITER,
     ADMINISTRATOR
+
+
 }

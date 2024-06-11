@@ -2,6 +2,7 @@ package com.food.orders.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 @Entity
 @Table(name = "category")
@@ -16,6 +17,7 @@ public class Category {
     private List<Product> products;
 
     public Category() {
+        this.products=new ArrayList<>();
     }
 
     public Category(Integer id, String name, List<Product> products) {

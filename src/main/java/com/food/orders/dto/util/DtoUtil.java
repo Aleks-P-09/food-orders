@@ -1,8 +1,10 @@
 package com.food.orders.dto.util;
 
+import com.food.orders.controller.template.CreateProductTemplate;
 import com.food.orders.dto.*;
 import com.food.orders.entities.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,7 +21,11 @@ public class DtoUtil {
                 product.getImageUrl(),
                 DtoUtil.toUserDto(product.getCreatedBy()),
                 product.getCreatedOn(),
-                DtoUtil.toCategoryDto(product.getCategory())
+                new CategoryDto(
+                     product.getCategory().getId(),
+                     product.getCategory().getName(),
+                     new ArrayList<>()
+               )
         );
     }
 
