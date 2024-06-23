@@ -70,11 +70,6 @@ public class UserServiceImpl implements UserService {
         User user=optionalUser.get();
 
         return DtoUtil.toUserDto(user);
-
-
-
-
-
     }
 
 

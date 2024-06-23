@@ -13,11 +13,9 @@ public class UserDto {
     private String lastName;
     private String phone;
     private String address;
-
     private UserRole role;
     private LocalDateTime createdOn;
     private String createdBy;
-
     private List<FavoritesDto> favorites;
 
     public UserDto() {

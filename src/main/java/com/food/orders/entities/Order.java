@@ -1,7 +1,9 @@
 package com.food.orders.entities;
 
+import com.food.orders.entities.enums.Status;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,6 +20,9 @@ public class Order {
     private String phone;
     @Column(name = "address", nullable = false)
     private String address;
+
+    @Column(name = "last_status", nullable = false)
+    private Status lastStatus;
     @OneToMany(mappedBy = "status", fetch = FetchType.LAZY)
     private List<OrderStatus> orderStatuses;
 
@@ -26,6 +31,7 @@ public class Order {
     private Cart cart;
 
     public Order() {
+        this.orderStatuses=new ArrayList<>();
     }
 
     public Order(Integer id,
@@ -33,6 +39,7 @@ public class Order {
                  String lastName,
                  String phone,
                  String address,
+                 Status lastStatus,
                  List<OrderStatus>  orderStatuses,
                  Cart cart) {
         this.id = id;
@@ -40,6 +47,7 @@ public class Order {
         this.lastName = lastName;
         this.phone = phone;
         this.address = address;
+        this.lastStatus = lastStatus;
         this.orderStatuses = orderStatuses;
         this.cart = cart;
     }
@@ -100,6 +108,14 @@ public class Order {
         this.cart = cart;
     }
 
+    public Status getLastStatus() {
+        return lastStatus;
+    }
+
+    public void setLastStatus(Status lastStatus) {
+        this.lastStatus = lastStatus;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
@@ -108,6 +124,7 @@ public class Order {
                 ", lastName='" + lastName + '\'' +
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +
+                ", lastStatus=" + lastStatus +
                 ", orderStatuses=" + orderStatuses +
                 ", cart=" + cart +
                 '}';

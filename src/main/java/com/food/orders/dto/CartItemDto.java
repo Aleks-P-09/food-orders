@@ -5,7 +5,7 @@ import com.food.orders.entities.Cart;
 
 public class CartItemDto {
     private Integer id;
-    private CartDto cart;
+
     private Integer quantity;
     private String productName;
     private Double price;
@@ -14,12 +14,10 @@ public class CartItemDto {
     }
 
     public CartItemDto(Integer id,
-                       CartDto cart,
                        Integer quantity,
                        String productName,
                        Double price) {
         this.id = id;
-        this.cart = cart;
         this.quantity = quantity;
         this.productName = productName;
         this.price = price;
@@ -31,14 +29,6 @@ public class CartItemDto {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public CartDto getCart() {
-        return cart;
-    }
-
-    public void setCart(CartDto cart) {
-        this.cart = cart;
     }
 
     public Integer getQuantity() {
@@ -69,7 +59,6 @@ public class CartItemDto {
     public String toString() {
         return "CartItemDto{" +
                 "id=" + id +
-                ", cart=" + cart +
                 ", quantity=" + quantity +
                 ", productName='" + productName + '\'' +
                 ", price=" + price +

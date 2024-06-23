@@ -3,6 +3,7 @@ package com.food.orders.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,6 +19,7 @@ public class Cart {
     private List<CartItem> cartItems;
 
     public Cart() {
+        this.cartItems=new ArrayList<>();
     }
 
     public Cart(Integer id, LocalDateTime createdOn) {

@@ -9,7 +9,6 @@ import com.food.orders.service.interfaces.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -22,7 +21,6 @@ public class CategoryServiceImpl implements CategoryService {
     public CategoryServiceImpl(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
-
 
     public List<CategoryDto> getAllCategories(){
         return categoryRepository.findAll()
@@ -52,6 +50,4 @@ public class CategoryServiceImpl implements CategoryService {
          categoryRepository.saveAndFlush(category);
          return DtoUtil.toCategoryDto(category);
     }
-
-
 }

@@ -39,7 +39,8 @@ public class DtoUtil {
                 user.getRole(),
                 user.getCreatedOn(),
                 user.getCreatedBy(),
-                user.getFavorites().stream().map(favorites -> toFavoritesDto(favorites)).collect(Collectors.toList())
+                new ArrayList<>()
+//                user.getFavorites().stream().map(favorites -> toFavoritesDto(favorites)).collect(Collectors.toList())
 //                user.getFavorites().stream().map(favorites -> toFavoritesDto(favorites)).toList()
         );
     }
@@ -85,7 +86,6 @@ public class DtoUtil {
     public static CartItemDto toCartItemDto(CartItem cartItem){
         return new CartItemDto(
                 cartItem.getId(),
-                DtoUtil.toCartDto(cartItem.getCart()),
                 cartItem.getQuantity(),
                 cartItem.getProductName(),
                 cartItem.getPrice()

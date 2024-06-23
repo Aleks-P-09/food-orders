@@ -35,13 +35,6 @@ public class ProductServiceImpl implements ProductService {
         this.categoryRepository = categoryRepository;
     }
 
-//    public List<ProductDto> getAllProducts() {
-//        return productRepository.findAll()
-//                .stream()
-//                .map(product -> DtoUtil.toProductDto(product))
-//                .collect(Collectors.toList());
-//    }
-
     @Override
     public ProductDto createProduct(CreateProductTemplate createProductTemplate) {
 

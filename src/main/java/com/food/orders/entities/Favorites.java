@@ -18,6 +18,7 @@ public class Favorites {
     private User user;
 
     public Favorites() {
+
     }
 
     public Favorites(Integer id,
@@ -60,4 +61,5 @@ public class Favorites {
                 ", user=" + user +
                 '}';
     }
+
 }

@@ -20,6 +20,7 @@ public class CartItem {
     private Double price;
 
     public CartItem() {
+
     }
 
     public CartItem(Integer id,

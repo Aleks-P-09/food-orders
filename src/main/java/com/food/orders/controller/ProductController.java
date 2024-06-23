@@ -31,11 +31,6 @@ public class ProductController {
         return ResponseEntity.ok(productService.getAllProductsByCategory(id));
     }
 
-//    @GetMapping
-//    public ResponseEntity<List<ProductDto>> getAllProducts() {
-//        return ResponseEntity.ok(productService.getAllProducts());
-//    }
-
     @PostMapping
     public ResponseEntity <ProductDto> createProduct(@RequestBody CreateProductTemplate createProductTemplate){
         return ResponseEntity.ok(this.productService.createProduct(createProductTemplate));

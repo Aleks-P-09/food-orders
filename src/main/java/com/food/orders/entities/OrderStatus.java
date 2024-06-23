@@ -11,6 +11,10 @@ public class OrderStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @ManyToOne
+    @JoinColumn(name="order_id", nullable=false)
+    private Order order;
     @Column(name = "created_on", nullable = false)
     private LocalDateTime createdOn;
     @Column(name ="created_by", nullable = false )
@@ -25,14 +29,19 @@ public class OrderStatus {
     }
 
     public OrderStatus(Integer id,
+                       Order order,
                        LocalDateTime createdOn,
                        String createdBy,
-                       Status status) {
+                       Status status,
+                       String notes) {
         this.id = id;
+        this.order = order;
         this.createdOn = createdOn;
         this.createdBy = createdBy;
         this.status = status;
+        this.notes = notes;
     }
+
 
     public Integer getId() {
         return id;
@@ -74,10 +83,19 @@ public class OrderStatus {
         this.notes = notes;
     }
 
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
     @Override
     public String toString() {
         return "OrderStatus{" +
                 "id=" + id +
+                ", order=" + order +
                 ", createdOn=" + createdOn +
                 ", createdBy='" + createdBy + '\'' +
                 ", status=" + status +
